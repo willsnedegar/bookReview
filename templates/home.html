@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block heading %}
+    Home
+{% endblock %}
+
+{% block body %}
+    {{ currentUser }}
+
+    <form action="{{ url_for('home') }}" method = "post">
+        <input type="text" name="search" placeholder="Search (ISBN, Title, Author)">
+        <button>Search</button>
+    </form>
+        <ul>
+            {% for row in selectedBooks %}
+            <li>
+                <a href="{{url_for('book', bookIsbn=row.isbn)}}">{{ row.title}} by {{row.author}}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    <a href="{{ url_for('logout') }}">Logout</a>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block heading %}
+{% endblock %}
+
+{% block body %}
+    {{ bookInfo.title }}
+    {{ bookInfo.author }}
+    {{ bookInfo.isbn }}
+    {{ bookInfo.year }}
+    {{ avgRating }}
+    {{ reviewCount }}
+
+    <a href = "{{ url_for('home') }}">Home</a>
+{% endblock %}
